@@ -80,7 +80,7 @@ if (isset($_POST['submit'])) {
 
                 <!-- First Blog Post -->
                 <h2>
-                    <a href="#">'.$row['post_title'].'</a>
+                    <a href="userinfo.php?data='.$row['post_id'].' ">'.$row['post_id'].'</a>
                     
                 </h2>
                 <p class="lead">
