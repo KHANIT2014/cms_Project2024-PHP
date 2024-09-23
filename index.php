@@ -78,12 +78,12 @@ include "includes/db.php";
 
                 <!-- Second Blog Post -->
                 <h2>
-                    <a href="#">Blog Post Title</a>
+                    <a href="#"><?php echo $post_title ; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
+                    by <a href="index.php"><?php echo $post_author ; ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ; ?></p>
                 <hr>
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                 <hr>
