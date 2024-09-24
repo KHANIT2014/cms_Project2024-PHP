@@ -31,7 +31,15 @@ function viewAllPosts(){
                     <td><?php echo $post_count; ?></td>
                     <td><img src="<?php echo $post_image ?>" height='100px' width='100px'/></td>
                     <td><?php echo $post_date; ?></td>
-      
+                    <?php
+                    echo
+                    '<td>
+                    
+                  <button class="btn btn-primary"><a href="edit_post.php?updateid='.$post_id.' " class="text-light">update</a></button></td><td>
+                  <button class="btn btn-danger"><a href="delete_post.php?deleteid='.$post_id.'" class="text-light">Delete</a></button>
+                </td>'
+                    ?>
+                  
     
                 </tr>
                 <?php            
@@ -80,7 +88,15 @@ function addPost(){
 
 function updatePost(){
     global $connection;
-    if(isset($_POST['submit'])){ 
+    $id=$_GET['updateid'];
+
+
+
+
+
+
+
+    if(isset($_POST['update'])){ 
         $post_category_id=$_POST['post_category_id'];
         $post_title=$_POST['post_title'];
         $post_author=$_POST['post_author'];
@@ -98,8 +114,8 @@ function updatePost(){
     
     
     
-            $update_post= "UPDATE posts SET post_category_id ='$post_category_id', post_title= '$post_title',
-             post_author='$post_author',  post_date='$post_date', post_image= '$post_image', 
+            $update_post= "UPDATE posts SET post_id='$id', post_category_id ='$post_category_id', post_title= '$post_title',
+             post_author='$post_author',  post_date='$post_date', post_image= '$targetPath', 
              post_content ='$post_content', post_tags= '$post_tags', 
               post_status='$post_status', post_viewed_count= '$post_count'";
               
@@ -115,6 +131,18 @@ function updatePost(){
     }
 }
 
+function deleteRecord(){
+    global $connection;
+
+    $the_delete = $_GET['deleteid'];
+    $sql_delete = "DELETE FROM posts WHERE post_id = $the_delete";
+    $result_delete= mysqli_query($connection,$sql_delete);
+    if($result_delete){
+        header("location:posts.php");
+    }else{
+        die("try again ". mysqli_error($connection));
+    }
+}
 
 
 ?>
