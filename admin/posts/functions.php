@@ -23,6 +23,19 @@ function viewAllPosts(){
            <tr>
                     <td><?php echo $post_id; ?></td>
                     <td><?php echo $post_category_id; ?></td>
+                     <!-- <td>
+                    <?php
+                     $sql_category = "SELECT * FROM categories ";
+                     $result_category = mysqli_query($connection,$sql_category);
+                     while($row_category=mysqli_fetch_assoc($result_category)){
+                         $cat_id= $row_category['cat_id'];
+                         $cat_title=$row_category['cat_title'];
+         
+                         echo "<option value='.$cat_title.'>$cat_title </option>";
+                     }
+                     
+                     ?>
+                     </td> -->
                     <td><?php echo $post_title; ?></td>
                     <td><?php echo $post_author; ?></td>
                     <td><?php echo $post_content; ?></td>
@@ -97,6 +110,7 @@ function updatePost(){
 
 
     if(isset($_POST['update'])){ 
+        
         $post_category_id=$_POST['post_category_id'];
         $post_title=$_POST['post_title'];
         $post_author=$_POST['post_author'];
@@ -114,7 +128,7 @@ function updatePost(){
     
     
     
-            $update_post= "UPDATE posts SET post_id='$id', post_category_id ='$post_category_id', post_title= '$post_title',
+            $update_post= "UPDATE posts SET post_id=$id, post_category_id ='$post_category_id', post_title= '$post_title',
              post_author='$post_author',  post_date='$post_date', post_image= '$targetPath', 
              post_content ='$post_content', post_tags= '$post_tags', 
               post_status='$post_status', post_viewed_count= '$post_count'";
