@@ -2,8 +2,8 @@
 include "../includesadmin/db.php";
 
 
-
-function viewAllPosts(){
+// 0131040100029471 
+function viewAllComments(){
     global $connection;
     $view_post= "SELECT * FROM posts ";
     $view_post_result = mysqli_query($connection,$view_post);
@@ -62,7 +62,7 @@ function viewAllPosts(){
 }
 
 
-function addPost(){
+function addComments(){
     global $connection;
 
     if(isset($_POST['submit'])){ 
@@ -100,7 +100,7 @@ function addPost(){
 
 
 
-function updatePost(){
+function updateComments(){
     global $connection;
     $id=$_GET['updateid'];
 
@@ -146,7 +146,7 @@ function updatePost(){
     }
 }
 
-function deleteRecord(){
+function deleteComments(){
     global $connection;
 
     $the_delete = $_GET['deleteid'];

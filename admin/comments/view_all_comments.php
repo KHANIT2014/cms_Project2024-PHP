@@ -46,7 +46,7 @@ include "../includesadmin/header.php";
             viewAllPosts();
                 ?>
 
-             <!-- <tr>
+            <!-- <tr>
                     <td><?php echo $post_id; ?></td>
                     <td>PhP</td>
                     <td>PHP</td>
@@ -57,9 +57,7 @@ include "../includesadmin/header.php";
                     <td>4</td>
                     <td>upload</td>
                     <td>Today</td>
-                </tr>  -->
-
-
+                </tr> -->
             </tbody>
         </div>
 
