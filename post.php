@@ -102,13 +102,28 @@
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
+                 <?php
+                 include "./admin/comments/functions.php";   
+                 addComment();             
+                 ?>
+
+
+
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form role="form">
-                        <div class="form-group">
-                            <textarea class="form-control" rows="3"></textarea>
+                    <form action="" method="post" role="form">
+                    <div class="form-group">
+                            <label for="Author">Author</label>
+                            <input type="text" name="comment_author" id="" required=" field dos't empty">
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-group">
+                        <label for="Author">Email</label>
+                        <input type="email" name="comment_email" id="" required=" field dos't empty">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="comment_text" rows="3"></textarea>
+                        </div>
+                        <button type="submit" name="create_comment" value="create_comment" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
 

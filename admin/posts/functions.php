@@ -106,7 +106,7 @@ function updatePost(){
 
 
 
-
+// some part is also updated in edit_post.php
 
 
 

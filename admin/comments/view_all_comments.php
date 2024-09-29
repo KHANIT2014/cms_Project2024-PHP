@@ -20,44 +20,26 @@ include "../includesadmin/header.php";
         <div class="form-group">
             <thead>
                 <tr>
-                    <td>Post id</td>
-                    <td>Post_category</td>
-                    <td>Post_title</td>
-                    <td>Post_author</td>
-                    <td>Post_content</td>
-                    <td>Post_status</td>
-                    <td>Post_tags</td>
-                    <td>Post_count</td>
-                    <td>post_image</td>
-                    <td>post_date</td>
+                    <td>Comment ID</td>
+                    <td>comment_post_id</td>
+                    <td>comment_author</td>
+                    <td>comment_content	</td>
+                    <!-- <td>Post_content</td> -->
+                    <td>comment_email</td>
+                    <td>comment_status</td>
+                    <td>comment Date</td>
+                    <td>un Approve</td>
+                    <td>Approve</td>
+                    <td>Delete</td>
                 </tr>
             </thead>
             <tbody>
                 <?php
-            //    $view_post= "SELECT * FROM posts ";
-            //    $view_post_result = mysqli_query($connection,$view_post);
-            //    if($view_post_result){
-            //        while($row_post= mysqli_fetch_assoc($view_post_result)){
-            //            $post_id =$row_post['post_id'];
-            //            $post_title=$row_post['post_title'];
-                       
-            //        }
-            //    }
-            viewAllPosts();
+           
+            viewAllComments();
                 ?>
 
-            <!-- <tr>
-                    <td><?php echo $post_id; ?></td>
-                    <td>PhP</td>
-                    <td>PHP</td>
-                    <td>Javid</td>
-                    <td>This new</td>
-                    <td>Published</td>
-                    <td>javascript</td>
-                    <td>4</td>
-                    <td>upload</td>
-                    <td>Today</td>
-                </tr> -->
+           
             </tbody>
         </div>
 

@@ -75,21 +75,21 @@ include "functions.php";
 
 // }
 
-updatePost();
+approveComments();
+unapproveComments();
 $id=$_GET['updateid'];
-    $query = "SELECT * FROM posts where post_id =$id ";
+    $query = "SELECT * FROM comments where comment_id =$id ";
   $result = mysqli_query($connection,$query);
   if($result){
     while($rowupdate = mysqli_fetch_assoc($result)){
-    $post_category_id=$rowupdate['post_category_id'];
-    $post_title=$rowupdate['post_title'];
-    $post_author=$rowupdate['post_author'];
-    $post_content=$rowupdate['post_content'];
-    $post_status=$rowupdate['post_status'];
-    $post_tags =$rowupdate['post_tags'];
-    $post_count =$rowupdate['post_viewed_count'];
-    $post_image =$rowupdate['post_image'];
-    $post_date =$rowupdate['post_date'];
+    $comment_id=$rowupdate['comment_id'];
+    $comment_post_id=$rowupdate['comment_post_id'];
+    $comment_author=$rowupdate['comment_author'];
+    $comment_content=$rowupdate['comment_content'];
+    $comment_email=$rowupdate['comment_email'];
+    // $comment_status =$rowupdate['comment_status'];
+
+    $comment_date =$rowupdate['date'];
 
     }
 }
@@ -102,7 +102,7 @@ $id=$_GET['updateid'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Post</title>
+    <title>Uppdate Comments</title>
 </head>
 
 <body>
@@ -117,14 +117,14 @@ $id=$_GET['updateid'];
             </div> -->
            
             <div class="mb-3">
-                <label for="text" class="form-label">Post Title</label>
-                <input type="text" class="form-control" name="post_title" 
-                value="<?php echo $post_title?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">Comment ID</label>
+                <input type="text" class="form-control" name="comment_id" 
+                value="<?php echo $comment_id?>" aria-describedby="emailHelp">
             </div>
             <div class="mb-3" class="form-group">
             <select name="post_category_id" id="">
 
-            <?php 
+            <!-- <?php 
             $sql_category = "SELECT * FROM categories ";
             $result_category = mysqli_query($connection,$sql_category);
             while($row_category=mysqli_fetch_assoc($result_category)){
@@ -134,43 +134,39 @@ $id=$_GET['updateid'];
                 echo "<option value='.$cat_title.'>$cat_title </option>";
             }
             
-            ?>
+            ?> -->
             </select>
             </div>
             <div class="mb-3 ">
-                <label for="text" class="form-label">Post author</label>
-                <input type="text" class="form-control" name="post_author"
-                value="<?php echo $post_author?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">comment_post_id</label>
+                <input type="text" class="form-control" name="comment_post_id"
+                value="<?php echo $comment_post_id?>" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="text" class="form-label">Post content</label>
-                <input type="text" class="form-control" name="post_content"
-                value="<?php echo $post_content?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">comment_author</label>
+                <input type="text" class="form-control" name="comment_author"
+                value="<?php echo $comment_author?>" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="text" class="form-label">Post status</label>
-                <input type="text" class="form-control" name="post_status"
-                value="<?php echo $post_status?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">comment_content</label>
+                <input type="text" class="form-control" name="comment_content"
+                value="<?php echo $comment_content?>" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="text" class="form-label">Post Tags</label>
-                <input type="text" class="form-control" name="tags"
-                value="<?php echo $post_tags?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">comment_email</label>
+                <input type="text" class="form-control" name="comment_email"
+                value="<?php echo $comment_email?>" aria-describedby="emailHelp">
             </div>
+            <!-- <div class="mb-3">
+                <label for="text" class="form-label">comment_Status</label>
+                <input type="text" class="form-control" name="comment_status"
+                value="<?php echo $comment_status?>" aria-describedby="emailHelp">
+            </div> -->
+           
             <div class="mb-3">
-                <label for="text" class="form-label">Post count</label>
-                <input type="text" class="form-control" name="post_viewed_count"
-                value="<?php echo $post_count?>" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="file" class="form-label">Post image</label>
-                <input type="file" class="form-control" name="image"
-                value="<?php echo $post_image?>" aria-describedby="emailHelp">
-            </div>
-            <div class="mb-3">
-                <label for="text" class="form-label">Post date</label>
-                <input type="date" class="form-control" name="post_date" 
-                value="<?php echo $post_date?>" aria-describedby="emailHelp">
+                <label for="text" class="form-label">comment date</label>
+                <input type="date" class="form-control" name="comment_date" 
+                value="<?php echo $comment_date?>" aria-describedby="emailHelp">
             </div>
             
             <button type="submit" name="update" value="update" class="btn btn-primary">update</button>
