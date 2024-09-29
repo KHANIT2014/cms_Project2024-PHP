@@ -100,18 +100,27 @@
                 <hr>
 
                 <!-- Blog Comments -->
+                 <!-- <h3 class="text-aling:center">Data has been uploaded successfully</h3> -->
 
                 <!-- Comments Form -->
+                <!-- <div class="alert alert-success" role="alert">
+  <h4 class="alert-heading">Well done!</h4>
+  <?php $successMessage; ?>
+  <hr>
+  <p class="mb-0">Whenever you need to, be sure to use margin 
+    utilities to keep things nice and tidy.</p>
+</div> -->
                  <?php
                  include "./admin/comments/functions.php";   
-                 addComment();             
+                 addComment();  
+
                  ?>
 
 
 
                 <div class="well">
                     <h4>Leave a Comment:</h4>
-                    <form action="" method="post" role="form">
+                    <form action="post.php" method="post" role="form">
                     <div class="form-group">
                             <label for="Author">Author</label>
                             <input type="text" name="comment_author" id="" required=" field dos't empty">
