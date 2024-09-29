@@ -65,9 +65,10 @@ function addComment(){
             $comment_author =$_POST['comment_author'];
             $comment_email =$_POST['comment_email'];
             $comment_text =$_POST['comment_text'];
+            // $comment_date = $_POST['date'];
 
-            $update_query = "INSERT INTO comments (comment_author,comment_email, comment_content )
-            VALUES ('$comment_author', '$comment_email','$comment_text')" ;
+            $update_query = "INSERT INTO comments (comment_author,comment_email, comment_content,comment_status,comment_date )
+            VALUES ('$comment_author', '$comment_email','$comment_text','unapproved',now())" ;
 
             $result_update_comment= mysqli_query($connection,$update_query);
             if($result_update_comment){
