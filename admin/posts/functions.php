@@ -100,51 +100,51 @@ function addPost(){
 
 
 
-function updatePost(){
-    global $connection;
-    $id=$_GET['updateid'];
+// function updatePost(){
+//     global $connection;
+//     // $id=$_GET['updateid'];
 
 
 
-// some part is also updated in edit_post.php
+// // some part is also updated in edit_post.php
 
 
 
-    if(isset($_POST['update'])){ 
+//     if(isset($_POST['update'])){ 
         
-        $post_category_id=$_POST['post_category_id'];
-        $post_title=$_POST['post_title'];
-        $post_author=$_POST['post_author'];
-        $post_content=$_POST['post_content'];
-        $post_status=$_POST['post_status'];
-        $post_tags =$_POST['tags'];
-        $post_count =$_POST['post_viewed_count'];
-        $post_image =$_FILES['image']['name'];
-        $post_image_tmp =$_FILES['image']['tmp_name'];
-        $targetPath= "../uploads/".$post_image;
-        $post_date=date('d-m-y');
+//         $post_category_id=$_POST['post_category_id'];
+//         $post_title=$_POST['post_title'];
+//         $post_author=$_POST['post_author'];
+//         $post_content=$_POST['post_content'];
+//         $post_status=$_POST['post_status'];
+//         $post_tags =$_POST['tags'];
+//         $post_count =$_POST['post_viewed_count'];
+//         $post_image =$_FILES['image']['name'];
+//         $post_image_tmp =$_FILES['image']['tmp_name'];
+//         $targetPath= "../uploads/".$post_image;
+//         $post_date=date('d-m-y');
     
-        move_uploaded_file($post_image_tmp,$targetPath);
+//         move_uploaded_file($post_image_tmp,$targetPath);
          
     
     
     
-            $update_post= "UPDATE posts SET post_id=$id, post_category_id ='$post_category_id', post_title= '$post_title',
-             post_author='$post_author',  post_date='$post_date', post_image= '$targetPath', 
-             post_content ='$post_content', post_tags= '$post_tags', 
-              post_status='$post_status', post_viewed_count= '$post_count'";
+//             $update_post= "UPDATE posts SET post_id=$id, post_category_id ='$post_category_id', post_title= '$post_title',
+//              post_author='$post_author',  post_date='$post_date', post_image= '$targetPath', 
+//              post_content ='$post_content', post_tags= '$post_tags', 
+//               post_status='$post_status', post_viewed_count= '$post_count' ";
               
-            $result_update_post= mysqli_query($connection,$update_post);
-            if($result_update_post){
-                header("location:posts.php");
-            }else{
-                echo "something is wrong";
-            }
+//             $result_update_post= mysqli_query($connection,$update_post);
+//             if($result_update_post){
+//                 header("location:posts.php");
+//             }else{
+//                 echo "something is wrong";
+//             }
             
            
     
-    }
-}
+//     }
+// }
 
 function deleteRecord(){
     global $connection;

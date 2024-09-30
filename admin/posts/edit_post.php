@@ -75,9 +75,11 @@ include "functions.php";
 
 // }
 
-updatePost();
-$id=$_GET['updateid'];
-    $query = "SELECT * FROM posts where post_id =$id ";
+// updatePost();
+if(isset($_GET['updateid'])){
+    $id = $_GET['updateid'];
+    // $id=$_GET['updateid'];
+    $query = "SELECT * FROM posts WHERE post_id =$id ";
   $result = mysqli_query($connection,$query);
   if($result){
     while($rowupdate = mysqli_fetch_assoc($result)){
@@ -92,6 +94,45 @@ $id=$_GET['updateid'];
     $post_date =$rowupdate['post_date'];
 
     }
+}
+}
+
+
+
+
+if(isset($_POST['update_post'])){ 
+        
+    $post_category_id=$_POST['post_category_id'];
+    $post_title=$_POST['post_title'];
+    $post_author=$_POST['post_author'];
+    $post_content=$_POST['post_content'];
+    $post_status=$_POST['post_status'];
+    $post_tags =$_POST['tags'];
+    $post_count =$_POST['post_viewed_count'];
+    $post_image =$_FILES['image']['name'];
+    $post_image_tmp =$_FILES['image']['tmp_name'];
+    $targetPath= "../uploads/".$post_image;
+    $post_date=date('d-m-y');
+
+    move_uploaded_file($post_image_tmp,$targetPath);
+     
+
+
+
+        $update_post= "UPDATE posts SET  post_category_id ='$post_category_id', post_title= '$post_title',
+         post_author='$post_author',  post_date='$post_date', post_image= '$targetPath', 
+         post_content ='$post_content', post_tags= '$post_tags', 
+          post_status='$post_status', post_viewed_count= '$post_count' WHERE post_id=$id  ";
+          
+        $result_update_post= mysqli_query($connection,$update_post);
+        if($result_update_post){
+            header("location:posts.php");
+        }else{
+            echo "something is wrong";
+        }
+        
+       
+
 }
 
        
@@ -173,7 +214,7 @@ $id=$_GET['updateid'];
                 value="<?php echo $post_date?>" aria-describedby="emailHelp">
             </div>
             
-            <button type="submit" name="update" value="update" class="btn btn-primary">update</button>
+            <button type="submit" name="update_post" value="update_post" class="btn btn-primary">update</button>
         </form>
     </div>
 </body>
