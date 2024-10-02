@@ -36,16 +36,16 @@ include "includes/db.php";
     <!-- Page Content -->
 
 
-    <?php 
+    <?php
     $query_post = "SELECT * FROM posts";
-    $result_post= mysqli_query($connection,$query_post);
-    while($row = mysqli_fetch_assoc($result_post)){
+    $result_post = mysqli_query($connection, $query_post);
+    while ($row = mysqli_fetch_assoc($result_post)) {
 
-        $post_title= $row['post_title'];
-        $post_author= $row['post_author'];
-        $post_date= $row['post_date'];
+        $post_title = $row['post_title'];
+        $post_author = $row['post_author'];
+        $post_date = $row['post_date'];
     }
-   
+
     ?>
     <div class="container">
 
@@ -62,12 +62,12 @@ include "includes/db.php";
                 <!-- First Blog Post -->
                 <h2>
                     <!-- <a href="#">Blog Post Title</a><br> -->
-                    <a href="#"><?php echo $post_title ; ?></a>
+                    <a href="#"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"><?php echo $post_author ; ?></a>
+                    by <a href="index.php"><?php echo $post_author; ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ; ?></p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date; ?></p>
                 <hr>
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                 <hr>
@@ -78,12 +78,12 @@ include "includes/db.php";
 
                 <!-- Second Blog Post -->
                 <h2>
-                    <a href="#"><?php echo $post_title ; ?></a>
+                    <a href="#"><?php echo $post_title; ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"><?php echo $post_author ; ?></a>
+                    by <a href="index.php"><?php echo $post_author; ?></a>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ; ?></p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date; ?></p>
                 <hr>
                 <img class="img-responsive" src="http://placehold.it/900x300" alt="">
                 <hr>
@@ -128,9 +128,10 @@ include "includes/db.php";
 
             <H1>side Bar should include here</H1>
             <?php
-    include "includes/sidebar.php";
-    ?>
-
+            include "includes/sidebar.php";
+            ?>
+        
+    
 
         </div>
         <!-- /.row -->

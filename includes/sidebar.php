@@ -20,12 +20,38 @@
                     <!-- Blog Search End -->
 
 
+                    <!-- login form starts  -->
+
+                    <div class="form-group">
+            <form action="includes/login.php" method="post">
+                <div class="input-group">
+                    <label for="Login">Username</label>
+                    <input type="text" name="name_index" id="">
+                </div>
+                <div class="input-group">
+                    <label for="password">password</label>
+                    <input type="password" name="password_index" id="">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" name="index_form" value="index_form">submit</button>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+
+                    <!-- login form Ends  -->
+
+
 
 
                     <!-- /.input-group -->
                 </div>
 
                 <!-- Blog Categories Well -->
+
+                <!-- the below mentioned lines has been hided by me  -->
+
+
                 <div class="well">
                     <h4>Blog Categories</h4>
                     <div class="row">
@@ -47,11 +73,19 @@
                             </ul>
                         </div>
                 </div>
+                <!-- the above lines hided -->
+
+
+
 
                 <!-- Side Widget Well -->
-                <div class="well">
+
+
+
+
+                <!-- <div class="well">
                     <h4>Side Widget Well</h4>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div>
+                </div> -->
 
             </div>

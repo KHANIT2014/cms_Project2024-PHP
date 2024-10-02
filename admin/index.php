@@ -1,3 +1,12 @@
+<?php
+include "./database/db.php";
+session_start();
+ob_start();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -231,7 +240,7 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Blank Page
-                            <small>Subheading</small>
+                            <small><?php echo $_SESSION['username'] ?></small>
                         </h1>
                         <ol class="breadcrumb">
                             <li>
