@@ -48,7 +48,10 @@ function viewAllusers()
                 echo
                 '<td>
                     
-                  <button class="btn btn-primary"><a href="edit_user.php?update_user=' . $user_id . ' " class="text-light">Update</a></button></td><td>
+                  <button class="btn btn-primary"><a href="edit_user.php?admin_role=' . $user_id . ' " class="text-light">Admin</a></button></td><td>
+                    <button class="btn btn-primary"><a href="edit_user.php?sub_role=' . $user_id . ' " class="text-light">Subscriber</a></button></td><td>
+                    <button class="btn btn-primary"><a href="edit_user.php?update_user=' . $user_id . ' " class="text-light">Edit</a></button></td><td>
+
              
                   <button class="btn btn-danger"><a href="delete_user.php?delete_user=' . $user_id . '" class="text-light">Delete</a></button>
                 </td>'
@@ -111,15 +114,15 @@ function approveusers()
     global $connection;
     // $id=$_GET['approve'];
 
-    if (isset($_GET['approve'])) {
+    if (isset($_GET['admin_role'])) {
 
-        $approve = $_GET['approve'];
+        $approve = $_GET['admin_role'];
 
-        $approve_query = "UPDATE users SET comment_status= 'approved' WHERE comment_id =$approve";
+        $admin_query = "UPDATE users SET user_role= 'admin' WHERE user_id =$approve";
 
-        $result_update_post = mysqli_query($connection, $approve_query);
-        if ($result_update_post) {
-            header("location:view_all_comments.php");
+        $result_update_user = mysqli_query($connection, $admin_query);
+        if ($result_update_user) {
+            header("location:view_all_users.php");
         } else {
             echo "something is wrong";
         }
@@ -136,19 +139,19 @@ function unapproveusers()
     global $connection;
     // $id=$_GET['approve'];
 
-    if (isset($_GET['unapprove'])) {
+    if (isset($_GET['sub_role'])) {
 
-        $approve = $_GET['unapprove'];
+        $unapprove = $_GET['sub_role'];
 
-        $approve_query = "UPDATE users SET comment_status= 'unapproved' WHERE comment_id =$approve";
+        $sub_query = "UPDATE users SET user_role= 'subscriber' WHERE user_id =$unapprove";
 
-        $result_update_post = mysqli_query($connection, $approve_query);
-        if ($result_update_post) {
-            header("location:view_all_comments.php");
+        $result_update_sub_user = mysqli_query($connection, $sub_query);
+        if ($result_update_sub_user) {
+            header("location:view_all_users.php");
         } else {
             echo "something is wrong";
         }
-    }
+}
 }
 
 function deleteusers()

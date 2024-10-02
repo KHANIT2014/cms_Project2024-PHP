@@ -30,7 +30,8 @@ include "../includesadmin/header.php";
                     <td>Image</td>
                     <td>Role</td>
                     <td>ransalt</td>
-                    <td>update</td>
+                    <td>admin</td>
+                    <td>Subscriber</td>
                     <td>Delete</td>
                 </tr>
             </thead>

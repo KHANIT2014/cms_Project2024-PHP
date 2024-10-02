@@ -3,6 +3,8 @@
 include "../includesadmin/header.php";
 include "db.php";
 include "functions.php";
+approveusers();
+unapproveusers();
 
 // updateUser();
 
@@ -115,9 +117,24 @@ if (isset($_POST['update_user'])) {
                 value="<?php echo $user_image; ?>" aria-describedby="emailHelp">
             </div>
             <div class="mb-3">
-                <label for="text" class="form-label">user_role</label>
+                <select name="role" id="">
+                <option value="subscriber"><?php echo $user_role; ?></option>
+
+                <?php
+                if($user_role == 'admin'){
+                    echo '<option value="subscriber">subscriber</option>';
+                }else{
+                    echo '<option value="admin">admin</option>';
+                }
+                
+                ?>
+                   
+                    <!-- <option value="admin">admin</option>
+                    <option value="subscriber">subscriber</option> -->
+                </select>
+                <!-- <label for="text" class="form-label">user_role</label>
                 <input type="text" class="form-control" name="role" 
-                value="<?php echo $user_role; ?>" aria-describedby="emailHelp">
+                value="<?php echo $user_role; ?>" aria-describedby="emailHelp"> -->
             </div>
             <div class="mb-3">
                 <label for="file" class="form-label">ransalt</label>
