@@ -38,9 +38,12 @@ if(isset($_POST['index_form'])){
 
 }
 if($username_index == $user_name && $password_index ==$user_password){
-   echo $_SESSION['username_index']=$user_name;
+     $_SESSION['username_index']=$user_name;
+     $_SESSION['password_index']=$password_index;
+     $_SESSION['user_role']=$user_role;
     header("location:../admin");
-}
+}else
+header("location:../index.php");
 
 
 

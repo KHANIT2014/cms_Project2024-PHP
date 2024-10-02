@@ -1,5 +1,11 @@
 <?php session_start();
 ob_start();
+include "db.php";
+
+
+if(!isset($_SESSION['user_role'])){
+    header("location:../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
