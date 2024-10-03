@@ -1,8 +1,9 @@
 <?php
 include "./database/db.php";
 include "index_function.php";
-session_start();
-ob_start();
+
+// session_start();
+// ob_start();
 ?>
 
 
@@ -29,6 +30,8 @@ ob_start();
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script> -->
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -292,7 +295,9 @@ ob_start();
                         <i class="fa fa-comments fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                     <div class='huge'>23</div>
+                    <?php  
+                        view_comments();
+                        ?>
                       <div>Comments</div>
                     </div>
                 </div>
@@ -314,7 +319,9 @@ ob_start();
                         <i class="fa fa-user fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                    <div class='huge'>23</div>
+                    <?php  
+                        view_Users();
+                        ?>
                         <div> Users</div>
                     </div>
                 </div>
@@ -336,7 +343,9 @@ ob_start();
                         <i class="fa fa-list fa-5x"></i>
                     </div>
                     <div class="col-xs-9 text-right">
-                        <div class='huge'>13</div>
+                    <?php  
+                        view_Categories();
+                        ?>
                          <div>Categories</div>
                     </div>
                 </div>
@@ -350,8 +359,46 @@ ob_start();
             </a>
         </div>
     </div>
+    <!-- chart details  -->
 </div>
                 <!-- /.row -->
+
+
+
+
+
+
+
+                <div class="row">
+                <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Data', 'Count'],
+          ['2014', 1000],
+          ['2015', 1170],
+          ['2016', 660],
+          ['2017', 1030]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Admin Record',
+            subtitle: '',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+
+
+<div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+   </div>
 
 
             <!-- // 8114390434  20666  HP Services Center Odisha

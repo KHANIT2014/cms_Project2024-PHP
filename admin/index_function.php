@@ -1,7 +1,8 @@
 <?php
 include "./database/db.php";
-session_start();
-ob_start();
+include "./includesadmin/header.php";
+// session_start();
+// ob_start();
 
 function view_Posts(){
     global $connection;

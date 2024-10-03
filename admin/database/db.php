@@ -2,9 +2,7 @@
 <?php
 $connection = mysqli_connect("localhost","root",'',"cms");
 
-if($connection){
-    echo "connected successfully";
-}else{
+if(!$connection){
     echo "Failed to connect";
 }
 
