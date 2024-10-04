@@ -41,6 +41,20 @@ function view_Categories(){
     echo "<div class='huge'>$category_count</div>";
 }
 
+function chart_detail(){
+
+    $elements = ['Posts','users','comments','categories'];
+    $elements_values = ['$post_count'];
+
+    // $elements_values = [$post_count, $user_count,$comment_count,$category_count];
+
+    for($i=0;$i<4; $i++){
+
+        echo "['$elements[$i]'" . "," . "$elements_values[$i] ],"  ;
+
+    }
+}
+
 
 
 

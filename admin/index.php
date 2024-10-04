@@ -377,10 +377,17 @@ include "index_function.php";
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
           ['Data', 'Count'],
-          ['2014', 1000],
-          ['2015', 1170],
-          ['2016', 660],
-          ['2017', 1030]
+          <?php
+        //   include 'index_function.php';
+        //   $Elements = ['Posts','users','comments','categories'];
+        //   $Elements_values= ['.$post_count.']
+        chart_detail();
+          
+          ?>
+
+
+          ['2014', 1000]
+         
         ]);
 
         var options = {
