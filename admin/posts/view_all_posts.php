@@ -16,7 +16,28 @@ include "../includesadmin/header.php";
 </head>
 <body>
     <h1 style="text-align:center" >this is post page</h1>
+
+    <form action="" method="post">
     <table class="table table-bordered table"  >
+
+    <div id="blukOptionsOptions" class="col-sx-4" >
+
+    <select class="form-control" name="" id="">
+        <option value="">Selected</option>
+        <option value="">Published</option>
+        <option value="">Draft</option>
+        <option value="">Approved</option>
+    </select>
+    </div>
+    <div class="col-sx-4">
+
+    <input type="submit" name="submit" class="btn btn-success " value="Apply" id="">
+    <a class="btn btn-primary" href="add_post.php">Add New</a>
+    </div>
+
+    
+
+  
         <div class="form-group">
             <thead>
                 <tr>
@@ -62,6 +83,7 @@ include "../includesadmin/header.php";
         </div>
 
     </table>
+    </form>
     
 
 

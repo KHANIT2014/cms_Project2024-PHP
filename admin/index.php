@@ -176,7 +176,7 @@ include "index_function.php";
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                        <a href="index.php"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
                         <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
@@ -191,13 +191,13 @@ include "index_function.php";
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Posts <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="#">Add Post</a>
+                                <a href="./posts/add_post.php">Add Post</a>
                             </li>
                             <li>
-                                <a href="#">Update Post</a>
+                                <a href="./posts/edit_post.php">Update Post</a>
                             </li>
                             <li>
-                                <a href="#">Delete Post</a>
+                                <a href="./posts/Delete_post.php">Delete Post</a>
                             </li>
                         </ul>
                     </li>
@@ -399,6 +399,22 @@ include "index_function.php";
                 // echo "<div class='huge'>$comment_count</div>";
 
 
+                
+                $sql_posts_draft = "SELECT * FROM posts WHERE post_status= 'draft'";
+                $sql_posts_draft_query = mysqli_query($connection, $sql_posts_draft);
+                $post_draft_count = mysqli_num_rows($sql_posts_draft_query);
+
+
+                $sql_users_subscriber = "SELECT * FROM users  WHERE user_role= 'subscriber'";
+                $sql_users_subscriber_query = mysqli_query($connection, $sql_users_subscriber);
+                $user_subscriber_count = mysqli_num_rows($sql_users_subscriber_query);
+
+               
+                $sql_comments_unapproved = "SELECT * FROM comments WHERE comment_status = 'unapproved'";
+                $sql_comments_unapproved_query = mysqli_query($connection, $sql_comments_unapproved);
+                $comment_unapproved_count = mysqli_num_rows($sql_comments_unapproved_query);
+
+
 
                 
 
@@ -417,11 +433,11 @@ include "index_function.php";
                             ['Data', 'Count'],
                             // ['Posts', '1000'],
                            <?php
-                           $elements =['Active Posts','Active Users','Active Comments','Active Categories'];
+                           $elements =['Active Posts', 'Draft_posts','Active Users','Comments','Pending_comments','Subscribers','Active Categories'];
 
-                           $ele_values= [$post_count,$user_count,$comment_count,$category_count];
+                           $ele_values= [$post_count,$post_draft_count ,$user_count,$comment_count,$comment_unapproved_count,$user_subscriber_count,$category_count];
 
-                           for($i=0;$i<4; $i++){
+                           for($i=0;$i<7; $i++){
 
                             echo "['{$elements[$i]}'" . "," . "{$ele_values[$i]} ],"  ;
                             
@@ -436,8 +452,8 @@ include "index_function.php";
 
                         var options = {
                             chart: {
-                                title: 'Company Performance',
-                                subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                                title: 'Admin Dashboard',
+                                subtitle: 'Latest Updated',
                             }
                         };
 
