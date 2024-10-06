@@ -1,6 +1,58 @@
 <?php
 include "functions.php";
 include "../includesadmin/header.php";
+checkBoxUpdate();
+
+// if(isset($_POST['checkboxArray'])){
+
+//     foreach($_POST['checkboxArray']as $postId);
+
+//     $bluck_options = $_POST['bluk_options'];
+
+//     // $query_post= "UPDATE posts SET post_status = 'draft' WHERE post_id = $postId";
+//     // $update_post_array = mysqli_query($connection,$query_post);
+//     // if($update_post_array){
+//     //     echo "updated ";
+//     // }
+
+
+
+//     switch($bluck_options){
+//         case 'draft':
+//             $query_post= "UPDATE posts SET post_status = 'draft' WHERE post_id = $postId";
+//         $update_post_array = mysqli_query($connection,$query_post);
+//         if($update_post_array){
+//             echo "updated ";
+//         }
+//         break;
+    
+//         case 'published':
+//             $query_post= "UPDATE posts SET post_status = 'published' WHERE post_id = $postId";
+//         $update_post_array = mysqli_query($connection,$query_post);
+//         if($update_post_array){
+//             echo "updated ";
+//         }
+//         break;
+    
+//         case 'delete':
+//             $query_post= "DELETE FROM  posts  WHERE post_id = $postId";
+//         $update_post_array = mysqli_query($connection,$query_post);
+//         if($update_post_array){
+//             echo "updated ";
+//         }
+//         break;
+    
+        
+    
+//     }
+
+// }
+
+
+
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +64,9 @@ include "../includesadmin/header.php";
     crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
      crossorigin="anonymous"></script>
+    
+
+
     <title>VIEW ALL POSTS</title>
 </head>
 <body>
@@ -22,11 +77,11 @@ include "../includesadmin/header.php";
 
     <div id="blukOptionsOptions" class="col-sx-4" >
 
-    <select class="form-control" name="" id="">
+    <select class="form-control" name="bluk_options" id="">
         <option value="">Selected</option>
-        <option value="">Published</option>
-        <option value="">Draft</option>
-        <option value="">Approved</option>
+        <option value="published">Published</option>
+        <option value="draft">Draft</option>
+        <option value="delete">Delete</option>
     </select>
     </div>
     <div class="col-sx-4">
@@ -41,16 +96,17 @@ include "../includesadmin/header.php";
         <div class="form-group">
             <thead>
                 <tr>
-                    <td>Post id</td>
-                    <td>Post_category</td>
-                    <td>Post_title</td>
-                    <td>Post_author</td>
-                    <td>Post_content</td>
-                    <td>Post_status</td>
-                    <td>Post_tags</td>
-                    <td>Post_count</td>
-                    <td>post_image</td>
-                    <td>post_date</td>
+                    <th><input type="checkbox"  class="selectAllCheckBoxes"></th>
+                    <th>Post id</th>
+                    <th>Post_category</th>
+                    <th>Post_title</th>
+                    <th>Post_author</th>
+                    <th>Post_content</th>
+                    <th>Post_status</th>
+                    <th>Post_tags</th>
+                    <th>Post_count</th>
+                    <th>post_image</th>
+                    <th>post_date</th>
                 </tr>
             </thead>
             <tbody>
@@ -84,8 +140,11 @@ include "../includesadmin/header.php";
 
     </table>
     </form>
+
+    
     
 
 
 </body>
+<!-- <script src="../js/scripts.js"></script>  -->
 </html>

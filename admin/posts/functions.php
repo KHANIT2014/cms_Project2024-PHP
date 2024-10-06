@@ -1,7 +1,60 @@
 <?php
 include "../includesadmin/db.php";
+// include "../includesadmin/header.php";
 
 
+
+
+function checkBoxUpdate(){
+    global $connection;
+    if(isset($_POST['checkboxArray'])){
+
+        foreach($_POST['checkboxArray']as $postId);
+    
+        $bluck_options = $_POST['bluk_options'];
+    
+        // $query_post= "UPDATE posts SET post_status = 'draft' WHERE post_id = $postId";
+        // $update_post_array = mysqli_query($connection,$query_post);
+        // if($update_post_array){
+        //     echo "updated ";
+        // }
+
+        switch($bluck_options){
+            case 'draft':
+                $query_post= "UPDATE posts SET post_status = 'draft' WHERE post_id = $postId";
+            $update_post_array = mysqli_query($connection,$query_post);
+            if($update_post_array){
+                echo "updated ";
+            }
+            break;
+        
+            case 'published':
+                $query_post= "UPDATE posts SET post_status = 'published' WHERE post_id = $postId";
+            $update_post_array = mysqli_query($connection,$query_post);
+            if($update_post_array){
+                echo "updated ";
+            }
+            break;
+        
+            case 'delete':
+                $query_post= "DELETE FROM  posts  WHERE post_id = $postId";
+            $update_post_array = mysqli_query($connection,$query_post);
+            if($update_post_array){
+                echo "updated ";
+            }
+            break;
+        
+            
+        
+        }
+        
+    
+    }
+    
+    
+    }
+    
+   
 
 function viewAllPosts(){
     global $connection;
@@ -21,6 +74,7 @@ function viewAllPosts(){
             $post_date=$row_post['post_date'];
            ?>
            <tr>
+            <td><input type="checkbox" name="checkboxArray[]" value="<?php echo $post_id; ?>"></td>
                     <td><?php echo $post_id; ?></td>
                     <td><?php echo $post_category_id; ?></td>
                      <!-- <td>
