@@ -24,7 +24,7 @@ function checkBoxUpdate(){
                 $query_post= "UPDATE posts SET post_status = 'draft' WHERE post_id = $postId";
             $update_post_array = mysqli_query($connection,$query_post);
             if($update_post_array){
-                echo "updated ";
+                // echo "updated ";
             }
             break;
         
@@ -32,7 +32,7 @@ function checkBoxUpdate(){
                 $query_post= "UPDATE posts SET post_status = 'published' WHERE post_id = $postId";
             $update_post_array = mysqli_query($connection,$query_post);
             if($update_post_array){
-                echo "updated ";
+                // echo "updated ";
             }
             break;
         
@@ -40,7 +40,7 @@ function checkBoxUpdate(){
                 $query_post= "DELETE FROM  posts  WHERE post_id = $postId";
             $update_post_array = mysqli_query($connection,$query_post);
             if($update_post_array){
-                echo "updated ";
+                // echo "updated ";
             }
             break;
         
