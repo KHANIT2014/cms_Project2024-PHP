@@ -103,6 +103,7 @@ function viewAllPosts(){
                     echo
                     '<td>
                     
+                  <button class="btn btn-primary"><a href="../post.php?updateid='.$post_id.' " class="text-light">View Post</a></button></td><td>
                   <button class="btn btn-primary"><a href="edit_post.php?updateid='.$post_id.' " class="text-light">update</a></button></td><td>
                   <button class="btn btn-danger"><a href="delete_post.php?deleteid='.$post_id.'" class="text-light">Delete</a></button>
                 </td>'

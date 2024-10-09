@@ -106,6 +106,9 @@ checkBoxUpdate();
                     <th>Post_count</th>
                     <th>post_image</th>
                     <th>post_date</th>
+                    <th>View Post</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
