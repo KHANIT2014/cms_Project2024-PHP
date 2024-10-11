@@ -10,7 +10,7 @@
 
 
 
-if (isset($_POST['Register'])) {
+if (isset($_POST['submit'])) {
     // echo $_POST['comment_author']; this line is for testing 
 
 
@@ -18,44 +18,46 @@ if (isset($_POST['Register'])) {
     $user_password = $_POST['password'];
   
     $user_email = $_POST['email'];
-    
 
-    $update_query = "INSERT INTO users (user_name,user_password,user_email )
+    if(!empty($user_name)&& !empty($user_password) && !empty($user_email)){
+
+        $query_encrpt = "SELECT * FROM users";
+        $enc_users = mysqli_query($connection,$query_encrpt);
+        if(!$enc_users){
+            die("Query Failed".mysqli_error($connection));
+        }
+        $row_enc = mysqli_fetch_array($enc_users);
+        $salt= $row_enc['ransalt'];
+        $user_password = crypt($password,$salt);
+
+        $update_query = "INSERT INTO users (user_name,user_password,user_email )
         VALUES ('$user_name','$user_password','$user_email')";
 
     $result_update_comment = mysqli_query($connection, $update_query);
     if ($result_update_comment) {
-        echo '<div class="alert alert-success" role="alert">
+        $message= '<div class="alert alert-success" role="alert">
              <h4 class="alert-heading">Well done!</h4>
              <hr>
-             <h3 class="text-aling:center">Data has been uploaded successfully</h3>
+             <h1 class="text-aling:center">Registration has been done successfully</h1>
             
             </div>';
-        header("location:./admin/posts/view_all_posts.php");
-    } else {
-        die("Failed to comment" . mysqli_error($connection));
-    }
+        // header("location:./admin/posts/view_all_posts.php");
+    }   
+
+    
+    }else {
+        // die("Failed to comment" . mysqli_error($connection));
+        $message = '<h3 class="text-center text-danger">Fields can not be empty</h3>';
+    } 
+
+
 }
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     ?>
+
+    <!-- <h5 class="text-center color-danger">Fields can not be emty</h5> -->
     
  
     <!-- Page Content -->
@@ -66,7 +68,7 @@ if (isset($_POST['Register'])) {
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
-                <h1>Register</h1>
+                <h1><?php  echo $message; ?></h1>
                     <form role="form" action="registration.php" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
