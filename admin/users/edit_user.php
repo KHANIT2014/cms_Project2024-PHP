@@ -127,11 +127,12 @@ if (isset($_POST['update_user'])) {
             </div>
             <div class="mb-3">
                 <select name="role" id="">
-                <option value="subscriber"><?php echo $user_role; ?></option>
+                <option value="<?php echo $user_role; ?>"><?php echo $user_role; ?></option>
 
                 <?php
                 if($user_role == 'admin'){
                     echo '<option value="subscriber">subscriber</option>';
+                    // i have update the defult value to curent value which you can change easily. Thanks
                 }else{
                     echo '<option value="admin">admin</option>';
                 }
