@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
         }
         $row_enc = mysqli_fetch_array($enc_users);
         $salt= $row_enc['ransalt'];
-        $user_password = crypt($password,$salt);
+        $user_password = crypt($user_password,$salt);
 
         $update_query = "INSERT INTO users (user_name,user_password,user_email )
         VALUES ('$user_name','$user_password','$user_email')";
