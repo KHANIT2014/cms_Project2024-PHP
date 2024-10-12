@@ -30,6 +30,8 @@ if (isset($_POST['submit'])) {
         $salt= $row_enc['ransalt'];
         $user_password = crypt($user_password,$salt);
 
+        //Above 8 lines code is for encryption password security purpose only under if statement from query_update .
+
         $update_query = "INSERT INTO users (user_name,user_password,user_email )
         VALUES ('$user_name','$user_password','$user_email')";
 

@@ -46,7 +46,16 @@ if (isset($_POST['update_user'])) {
     $ransalt = $_POST['ransalt'];
     // $comment_date = $_POST['date'];
 
-    $update_query = "UPDATE users SET  user_name ='$user_name',user_password='$user_password',
+    // $query_encrpt_update = "SELECT ransalt FROM users";
+    //     $enc_users_pass_update = mysqli_query($connection,$query_encrpt_update);
+    //     if(!$enc_users_pass_update){
+    //         die("Query Failed".mysqli_error($connection));
+    //     }
+    //     $row_enc = mysqli_fetch_array($enc_users_pass_update);
+    //     $salt_fetch= $row_enc['ransalt'];
+        $crp_password = crypt($user_password,$ransalt);
+
+    $update_query = "UPDATE users SET  user_name ='$user_name',user_password='$crp_password',
         user_fristname='$user_fristname',user_lastname='$user_lastname',user_email='$user_email',user_image='$user_image',
         user_role='$user_role',ransalt='$ransalt' WHERE user_id=$id ";
 
