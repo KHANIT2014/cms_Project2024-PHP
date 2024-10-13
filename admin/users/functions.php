@@ -53,7 +53,7 @@ function viewAllusers()
                     <button class="btn btn-primary"><a href="edit_user.php?update_user=' . $user_id . ' " class="text-light">Edit</a></button></td><td>
 
              
-                  <button class="btn btn-danger"><a href="delete_user.php?delete_user=' . $user_id . '" class="text-light">Delete</a></button>
+                  <button class="btn btn-danger"><a onClick=\" javascript: return confirm("are you sure"); \"  href="delete_user.php?delete_user=' . $user_id . '" class="text-light">Delete</a></button>
                 </td>'
                 ?>
               
