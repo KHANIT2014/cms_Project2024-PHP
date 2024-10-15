@@ -37,7 +37,7 @@ if(isset($_POST['index_form'])){
         
 
 }
-$password_index= crypt($password_index,$user_password);
+// $password_index= crypt($password_index,$user_password);
 
 if($username_index == $user_name && $password_index == $user_password){
      $_SESSION['username_index']=$user_name;
