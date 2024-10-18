@@ -46,12 +46,12 @@ include "includes/db.php";
             <!-- Blog Post Content Column -->
             <div class="col-lg-8">
                 <?php
-                if(isset($_GET['p_id'])){
-                    $main_post_id =$_GET['p_id'];
+                if(isset($_GET['category'])){
+                    $main_category_id =$_GET['category'];
                 }
 
 
-                $query_post = "SELECT * FROM posts WHERE post_id = $main_post_id ";
+                $query_post = "SELECT * FROM posts WHERE post_category_id = $main_category_id ";
                 $result_post = mysqli_query($connection, $query_post);
                 while ($row = mysqli_fetch_assoc($result_post)) {
 
@@ -238,22 +238,7 @@ include "includes/db.php";
                                 <div class="well">
                                     <h4>Blog Categories</h4>
                                     <div class="row">
-                                    <!-- <H1>side Bar should include here</H1> -->
-                                    <?php
-                     $sql_category = "SELECT * FROM categories ";
-                     $result_category = mysqli_query($connection,$sql_category);
-                     while($row_category=mysqli_fetch_assoc($result_category)){
-                         $cat_id= $row_category['cat_id'];
-                         $cat_title=$row_category['cat_title'];
-         
-                        //  echo "<option value='.$cat_title.'>$cat_title </option>";
-                         echo "<li><a href='category.php?category=$cat_id'> $cat_title</a></li>";
-                       
-                     }
-                     
-                     ?>
-
-                                        <!-- <div class="col-lg-6">
+                                        <div class="col-lg-6">
                                             <ul class="list-unstyled">
                                                 <li><a href="#">Category Name</a>
                                                 </li>
@@ -264,8 +249,8 @@ include "includes/db.php";
                                                 <li><a href="#">Category Name</a>
                                                 </li>
                                             </ul>
-                                        </div> -->
-                                        <!-- <div class="col-lg-6">
+                                        </div>
+                                        <div class="col-lg-6">
                                             <ul class="list-unstyled">
                                                 <li><a href="#">Category Name</a>
                                                 </li>
@@ -276,7 +261,7 @@ include "includes/db.php";
                                                 <li><a href="#">Category Name</a>
                                                 </li>
                                             </ul>
-                                        </div> -->
+                                        </div>
                                     </div>
                                     <!-- /.row -->
                                 </div>

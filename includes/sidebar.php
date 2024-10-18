@@ -64,11 +64,13 @@
                          $cat_id= $row_category['cat_id'];
                          $cat_title=$row_category['cat_title'];
          
-                         echo "<option value='.$cat_title.'>$cat_title </option>";
+                        //  echo "<option value='.$cat_title.'>$cat_title </option>";
+                         echo "<li><a href='category.php?category=$cat_id'> $cat_title</a></li>";
                        
                      }
                      
-                     ?>                              
+                     ?>  
+                                                
                               
                             </ul>
                         </div>
@@ -89,3 +91,5 @@
                 </div> -->
 
             </div>
+            <li></li>
+           
