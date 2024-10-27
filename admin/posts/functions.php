@@ -72,6 +72,8 @@ function viewAllPosts(){
             $post_count=$row_post['post_viewed_count'];
             $post_image=$row_post['post_image'];
             $post_date=$row_post['post_date'];
+            $post_view_count=$row_post['post_view_count'];
+
            ?>
            <tr>
             <td><input type="checkbox" name="checkboxArray[]" value="<?php echo $post_id; ?>"></td>
@@ -99,6 +101,8 @@ function viewAllPosts(){
                     <td><img src="<?php echo $post_image ?>" 
                     height='100px' width='100px'/></td>
                     <td><?php echo $post_date; ?></td>
+                    <td><?php echo $post_view_count; ?></td> 
+                    <!-- i have to add functionality to the above line  -->
                     <?php
                     echo
                     '<td>
