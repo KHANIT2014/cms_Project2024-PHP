@@ -43,6 +43,9 @@ function checkBoxUpdate(){
                 // echo "updated ";
             }
             break;
+            case 'clone':
+                
+                
         
             
         

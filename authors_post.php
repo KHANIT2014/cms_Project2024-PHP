@@ -52,7 +52,7 @@ include "includes/db.php";
                 }
 
 
-                $query_post = "SELECT * FROM posts WHERE post_author = {$main_author} ";
+                $query_post = "SELECT * FROM posts WHERE post_author = $main_author ";
                 $result_post = mysqli_query($connection, $query_post);
                 while ($row = mysqli_fetch_assoc($result_post)) {
 
